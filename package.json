@@ -1,0 +1,23 @@
+{
+  "name": "kuumba-forms",
+  "version": "0.0.1",
+  "description": "Visual app development framework for the web.",
+  "main": "core.js",
+  "scripts": {
+    "start": "parcel core.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walter-sharp/kuumba-forms.git"
+  },
+  "author": "Walter Sharp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/walter-sharp/kuumba-forms/issues"
+  },
+  "homepage": "https://github.com/walter-sharp/kuumba-forms#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jquery": "^3.3.2"
+  }
+}
