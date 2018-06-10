@@ -43,4 +43,9 @@ export class Canvas2dRenderer implements IRenderer
     {
 
     }
+
+    GetTextSize(text: string, font: Font): Rect
+    {
+        return new Rect();
+    }
 }

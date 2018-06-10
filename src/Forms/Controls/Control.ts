@@ -479,7 +479,7 @@ export class Control extends EventNotifier
         }
     }
 
-    GetIntersectingChild(position: Position): Control
+    protected GetIntersectingChild(position: Position): Control
     {
         let intersectingChild: Control = null;
 
@@ -579,7 +579,7 @@ export class Control extends EventNotifier
         }
     }
 
-    HandleChildPointerLeaveEvent(intersect: Control, event: ControlPointerEvent)
+    protected HandleChildPointerLeaveEvent(intersect: Control, event: ControlPointerEvent)
     {
         event.PointerEvent.Code = PointerEventTypes.PointerLeave;
                             
@@ -600,7 +600,7 @@ export class Control extends EventNotifier
         event.PointerEvent.Code = PointerEventTypes.PointerMove;
     }
 
-    HandleChildPointerEnterEvent(intersect: Control, event: ControlPointerEvent)
+    protected HandleChildPointerEnterEvent(intersect: Control, event: ControlPointerEvent)
     {
         event.PointerEvent.Code = PointerEventTypes.PointerEnter;
 
@@ -616,7 +616,7 @@ export class Control extends EventNotifier
         event.PointerEvent.Code = PointerEventTypes.PointerMove;
     }
 
-    HandlePointerEvent(event: ControlPointerEvent)
+    protected HandlePointerEvent(event: ControlPointerEvent)
     {
         if (this._Enabled == true)
         {
@@ -649,7 +649,7 @@ export class Control extends EventNotifier
         }
     }
 
-    HandleKeyboardEvent(event: ControlKeyboardEvent)
+    protected HandleKeyboardEvent(event: ControlKeyboardEvent)
     {
         if (this._Enabled == true)
         {
@@ -670,17 +670,17 @@ export class Control extends EventNotifier
         }
     }
 
-    HandleOnPointerClicked(event: ControlPointerEvent)
+    protected HandleOnPointerClicked(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
     }
 
-    HandleOnPointerDoubleClicked(event: ControlPointerEvent)
+    protected HandleOnPointerDoubleClicked(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
     }
 
-    HandleOnPointerDown(event: ControlPointerEvent)
+    protected HandleOnPointerDown(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
 
@@ -690,12 +690,12 @@ export class Control extends EventNotifier
         }
     }
 
-    HandleOnPointerEnter(event: ControlPointerEvent)
+    protected HandleOnPointerEnter(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
     }
 
-    HandleOnPointerLeave(event: ControlPointerEvent)
+    protected HandleOnPointerLeave(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
                             
@@ -708,7 +708,7 @@ export class Control extends EventNotifier
         this.RemoveControlClass(ControlClasses.Pressed);
     }
 
-    HandleOnPointerMove(event: ControlPointerEvent)
+    protected HandleOnPointerMove(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
 
@@ -719,45 +719,42 @@ export class Control extends EventNotifier
         }
     }
 
-    HandleOnPointerUp(event: ControlPointerEvent)
+    protected HandleOnPointerUp(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
 
         this.RemoveControlClass(ControlClasses.Pressed);
     }
 
-    HandleOnKeyDown(event: ControlKeyboardEvent)
+    protected HandleOnKeyDown(event: ControlKeyboardEvent)
     {
         this.NotifyEventSubscribers(event);
     }
 
-    HandleOnKeyPressed(event: ControlKeyboardEvent)
+    protected HandleOnKeyPressed(event: ControlKeyboardEvent)
     {
         this. NotifyEventSubscribers(event);
     }
 
-    HandleOnKeyUp(event: ControlKeyboardEvent)
+    protected HandleOnKeyUp(event: ControlKeyboardEvent)
     {
         this.NotifyEventSubscribers(event);
     }
-
     
-
-    
-    SetLayoutEngine(engine: ILayoutEngine)
+    public set LayoutEngine(engine: ILayoutEngine)
     {
         this._LayoutEngine = engine;
         this.PerformLayout();
     }
 
-    SetStyle(style: Style)
+    public set Style(style: Style)
     {
         this._Style = style;
 
         this.UpdateControlFromStyle();
     }
 
-    ApplyControlProperties(properties: Array<Property>)
+    protected ApplyControlProperties(properties: Array<Property>)
     {				
         for(let i = 0; i < properties.length; i++)
         {
@@ -797,7 +794,7 @@ export class Control extends EventNotifier
     /// <summary>
     /// Will update the properties of the control (size, dock, anchor etc...) from it's style
     /// </summary>
-    UpdateControlFromStyle()
+    protected UpdateControlFromStyle()
     {
         if (this._Style != null)
         {

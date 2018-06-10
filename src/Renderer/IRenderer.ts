@@ -20,4 +20,6 @@ export interface IRenderer
     DrawRectangle(rect: Rect, brush: Brush, pen: Pen);
     DrawRoundedRectangle(rect: Rect, brush: Brush, pen: Pen, radius: number);
     DrawText(text: string, rect: Rect, font: Font, brush: Brush, pen: Pen);
+
+    GetTextSize(text: string, font: Font): Rect;
 }
