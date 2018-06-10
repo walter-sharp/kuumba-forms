@@ -5,12 +5,12 @@ export class Padding
     Top : number;
     Bottom : number;
         
-    public GetVerticalPadding(): number
+    public get VerticalPadding(): number
     {
         return this.Bottom + this.Top;
     }
 
-    public GetHorizontalPadding(): number
+    public get HorizontalPadding(): number
     {
         return this.Left + this.Right;
     }
