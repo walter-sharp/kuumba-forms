@@ -7,10 +7,26 @@ export enum KeyboardEventTypes
     KeyPressed = 10
 };
 
+export class KeyboardState
+{
+    LeftShift: boolean;
+    RightShift: boolean;
+    LeftCtrl: boolean;
+    RightCtrl: boolean;
+    LeftAlt: boolean;
+    RightAlt: boolean;
+}
+
 export class KeyboardEvent extends Event
 {    
-    constructor(type: KeyboardEventTypes)
-    {
+    KeyCode: string;
+    State: KeyboardState;
+
+    constructor(keyCode: string, type: KeyboardEventTypes, state: KeyboardState)
+    {        
         super(type);
+
+        this.State = state;
+        this.KeyCode = keyCode;
     }
-};
+}
