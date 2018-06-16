@@ -1,7 +1,7 @@
 import { Event } from "./Events";
 import { Control } from "../Controls/Control";
 import { PointerEvent, PointerEventTypes, PointerButtons } from "./PointerEvents";
-import { KeyboardEvent, KeyboardEventTypes } from "./KeyboardEvents";
+import { KeyboardEvent, KeyboardEventTypes, KeyboardState } from "./KeyboardEvents";
 import { Size } from "../../Renderer/Size";
 import { Position } from "../../Renderer/Position";
 
@@ -48,10 +48,10 @@ export class ControlKeyboardEvent extends ControlEvent
 {					
     KeyboardEvent: KeyboardEvent;
 
-    constructor(control: Control, type: KeyboardEventTypes)        
+    constructor(control: Control, type: KeyboardEventTypes, keyCode: string, state: KeyboardState)
     {
         super(control, ControlEventTypes.Keyboard);
-        this.KeyboardEvent = new KeyboardEvent(type);
+        this.KeyboardEvent = new KeyboardEvent(keyCode, type, state);
     }    
 };
                 
