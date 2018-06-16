@@ -5,8 +5,8 @@ import { Font } from "../../../Renderer/Font";
 
 export class TextGraphic extends StyleComponent
 {
-    private Font: Font;
-    private Text: string;
+    Font: Font;
+    Text: string;
 
     constructor(name: string)
     {
@@ -15,6 +15,6 @@ export class TextGraphic extends StyleComponent
 
     RenderComponent(renderer: IRenderer, bounds: Rect)
     {
-        
+        renderer.DrawText(this.Text, bounds, this.Font, this.Brush, this.Pen);
     }
 }

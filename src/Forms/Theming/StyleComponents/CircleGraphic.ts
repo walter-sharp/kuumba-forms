@@ -6,8 +6,8 @@ import { Position } from "../../../Renderer/Position";
 
 export class CircleGraphic extends StyleComponent
 {
-    protected Radius: number = 0;
-    protected RadiusToBounds: boolean = false;
+    Radius: number = 0;
+    RadiusToBounds: boolean = false;
 
     constructor(name: string)
     {

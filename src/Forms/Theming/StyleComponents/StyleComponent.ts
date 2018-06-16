@@ -22,8 +22,8 @@ export enum StyleComponentTypes
 
 export abstract class StyleComponent
 {    
-    private _Name: string = "";    
-    private _Type: StyleComponentTypes;
+    Name: string = "";    
+    Type: StyleComponentTypes;
 
     Brush: Brush;
     Pen: Pen;
@@ -36,20 +36,10 @@ export abstract class StyleComponent
 
     constructor(name: string, type: StyleComponentTypes)
     {
-        this._Name = name;
-        this._Type = type;
+        this.Name = name;
+        this.Type = type;
     }
-
-    public get Name(): string
-    {
-        return this._Name;
-    }
-
-    public get Type(): StyleComponentTypes
-    {
-        return this._Type;
-    }
-
+    
     protected GetRenderBounds(controlBounds: Rect, position: Position, size: Size)
     {
         if (this.Anchor.HasAnchorStyle() == true)

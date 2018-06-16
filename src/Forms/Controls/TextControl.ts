@@ -89,6 +89,7 @@ export class TextControl extends Control
 
         let bounds = this.AbsoluteBounds;
         let textBounds = new Rect(bounds.X + this._TextOffset.X, bounds.Y + this._TextOffset.Y, this.Size.Width, this.Size.Height);
+        
         renderer.DrawText(this._Text, textBounds, this._Font, this._TextBackground, this._TextStroke);
     }
 

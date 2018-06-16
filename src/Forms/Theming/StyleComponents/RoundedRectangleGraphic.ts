@@ -6,7 +6,7 @@ import { Size } from "../../../Renderer/Size";
 
 export class RoundedRectangleGraphic extends StyleComponent
 {
-    private BorderRadius: number = 0;
+    BorderRadius: number = 0;
 
     constructor(name: string)
     {

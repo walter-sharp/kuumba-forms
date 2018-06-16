@@ -4,8 +4,8 @@ import { Rect } from "../../../Renderer/Rect";
 
 export class ImageGraphic extends StyleComponent
 {
-    private Path: string;
-    private ImageDrawOptions: ImageDrawRectMismatch;
+    Path: string;
+    ImageDrawOptions: ImageDrawRectMismatch;
 
     constructor(name: string)
     {

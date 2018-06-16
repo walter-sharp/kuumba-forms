@@ -131,7 +131,12 @@ export class Canvas2dRenderer implements IRenderer
 
     DrawText(text: string, rect: Rect, font: Font, brush: Brush, pen: Pen)
     {
+        this.LoadStyles(brush, pen);
+        
         this.Context.fillText(text, rect.X, rect.Y, rect.Width);
+
+        this.FinaliseShape();
+        
     }
 
     GetTextSize(text: string, font: Font): Rect

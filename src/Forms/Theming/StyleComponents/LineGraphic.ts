@@ -5,7 +5,7 @@ import { Position } from "../../../Renderer/Position";
 
 export class LineGraphic extends StyleComponent
 {
-    private LineTo: Position;
+    LineTo: Position;
 
     constructor(name: string)
     {

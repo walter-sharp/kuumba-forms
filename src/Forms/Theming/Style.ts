@@ -6,55 +6,40 @@ import { Rect } from "../../Renderer/Rect";
 
 export class Style
 {
-    private _Name: string;
+    Name: string;
 
-    private _StyleProperties = new Array<Property>();
-    private _StyleComponents = new Array<StyleComponent>();
-    private _StyleClasses = new Array<StyleClass>();
+    StyleProperties = new Array<Property>();
+    StyleComponents = new Array<StyleComponent>();
+    StyleClasses = new Array<StyleClass>();
 
     constructor(name: string)
     {
-        this._Name = name;
+        this.Name = name;
     }
-    
-    AddStyleClass(styleClass: StyleClass)
-    {
-        this._StyleClasses.push(styleClass);
-    }
-
-    AddStyleComponent(styleComponent: StyleComponent)
-    {
-        this._StyleComponents.push(styleComponent);
-    }
-    
-    AddStyleProperty(property: Property)
-    {
-        this._StyleProperties.push(property);
-    }
-
+        
     FindStyleComponent(name: string): StyleComponent
     {
         let component: StyleComponent = null;
 
         //first search the global components, then search the style class components
-        for (let i = 0; i < this._StyleComponents.length; i++)
+        for (let i = 0; i < this.StyleComponents.length; i++)
         {
-            if (this._StyleComponents[i].Name == name)
+            if (this.StyleComponents[i].Name == name)
             {
-                component = this._StyleComponents[i];
+                component = this.StyleComponents[i];
                 break;
             }
         }
 
         if (component == null)
         {
-            for (let i = 0; i < this._StyleClasses.length; i++)
+            for (let i = 0; i < this.StyleClasses.length; i++)
             {
-                for (let j = 0; j < this._StyleClasses[i].ComponentCount; j++)
+                for (let j = 0; j < this.StyleClasses[i].ComponentCount; j++)
                 {
-                    if (this._StyleClasses[i].Components[j].Name == name)
+                    if (this.StyleClasses[i].Components[j].Name == name)
                     {
-                        component = this._StyleClasses[i].Components[j];
+                        component = this.StyleClasses[i].Components[j];
                         break;
                     }
                 }
@@ -63,19 +48,14 @@ export class Style
 
         return component;
     }
-
-    public get Name()
-    {
-        return this._Name;
-    }
-
+    
     FindProperty(name: string): Property
     {
-        for (let i = 0; i < this._StyleProperties.length; i++)
+        for (let i = 0; i < this.StyleProperties.length; i++)
         {
-            if (this._StyleProperties[i].Name == name)
+            if (this.StyleProperties[i].Name == name)
             {
-                return this._StyleProperties[i];
+                return this.StyleProperties[i];
             }
         }
 
@@ -84,9 +64,9 @@ export class Style
                     
     ContainsClass(styleClass: string): boolean
     {
-        for (let i = 0; i < this._StyleClasses.length; i++)
+        for (let i = 0; i < this.StyleClasses.length; i++)
         {
-            if (styleClass == this._StyleClasses[i].Name)
+            if (styleClass == this.StyleClasses[i].Name)
             {
                 return true;
             }
@@ -97,11 +77,11 @@ export class Style
 
     FindStyleClass(name: string): StyleClass
     {
-        for (let i = 0; i < this._StyleClasses.length; i++)
+        for (let i = 0; i < this.StyleClasses.length; i++)
         {
-            if (this._StyleClasses[i].Name == name)
+            if (this.StyleClasses[i].Name == name)
             {
-                return this._StyleClasses[i];
+                return this.StyleClasses[i];
             }
         }
 
@@ -112,16 +92,16 @@ export class Style
     {
         let classesRendered = 0;
 
-        if (this._StyleClasses.length > 0)
+        if (this.StyleClasses.length > 0)
         {
             //try to find the state we're trying to render
             for (let i = 0; i < classes.length; i++)
             {
-                for (let j = 0; j < this._StyleClasses.length; j++)
+                for (let j = 0; j < this.StyleClasses.length; j++)
                 {
-                    if (this._StyleClasses[j].Name == classes[i])
+                    if (this.StyleClasses[j].Name == classes[i])
                     {
-                        this._StyleClasses[j].RenderComponents(renderer, bounds);
+                        this.StyleClasses[j].RenderComponents(renderer, bounds);
                         classesRendered += 1;
                         break;
                     }
@@ -132,11 +112,11 @@ export class Style
         if (classesRendered == 0)
         {
             //try to render the default style
-            for (let i = 0; i < this._StyleClasses.length; i++)
+            for (let i = 0; i < this.StyleClasses.length; i++)
             {							
-                if (this._StyleClasses[i].Name == "default")
+                if (this.StyleClasses[i].Name == "default")
                 {
-                    this._StyleClasses[i].RenderComponents(renderer, bounds);
+                    this.StyleClasses[i].RenderComponents(renderer, bounds);
                     classesRendered += 1;
                     break;
                 }							
@@ -155,9 +135,9 @@ export class Style
 
     RenderStyleClassAtIndex(renderer: IRenderer, index: number, bounds: Rect)
     {
-        if ((index >= 0) && (index < this._StyleClasses.length))
+        if ((index >= 0) && (index < this.StyleClasses.length))
         {
-            this._StyleClasses[index].RenderComponents(renderer, bounds);
+            this.StyleClasses[index].RenderComponents(renderer, bounds);
         }
     }
 }
