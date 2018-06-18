@@ -2,9 +2,9 @@
   "name": "kuumba-forms",
   "version": "0.0.1",
   "description": "Visual app development framework for the web.",
-  "main": "core.js",
+  "main": "kuumba-forms.js",
   "scripts": {
-    "start": "parcel core.ts"
+    "start": "parcel src/KuumbaForms.ts --out-file kuumba-forms.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,7 @@
   },
   "homepage": "https://github.com/walter-sharp/kuumba-forms#readme",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "typescript": "^2.9.2"
+  }
 }

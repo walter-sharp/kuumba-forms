@@ -30,7 +30,7 @@ export class Theme
                         }
                         else
                         {
-                            reject("An error ocurred parsing the theme file, see log for more details.");
+                            reject("Kuumba: An error ocurred parsing the theme file, see log for more details.");
                         }
                     }
                     else
