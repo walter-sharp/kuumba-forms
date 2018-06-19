@@ -4,7 +4,7 @@
   "description": "Visual app development framework for the web.",
   "main": "kuumba-forms.js",
   "scripts": {
-    "start": "parcel src/KuumbaForms.ts --out-file kuumba-forms.js"
+    "dev-build": "parcel src/KuumbaForms.ts --out-file kuumba-forms.js"
   },
   "repository": {
     "type": "git",
