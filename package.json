@@ -4,7 +4,7 @@
   "description": "Visual app development framework for the web.",
   "main": "kuumba-forms.js",
   "scripts": {
-    "dev-build": "parcel src/KuumbaForms.ts --out-file kuumba-forms.js"
+    "dev-build": "node ./build/dev-build.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,8 @@
   "homepage": "https://github.com/walter-sharp/kuumba-forms#readme",
   "dependencies": {},
   "devDependencies": {
-    "typescript": "^2.9.2"
+    "dts-generator": "^2.1.0",
+    "parcel-bundler": "^1.9.2",
+    "typescript": "2.9.2"
   }
 }
