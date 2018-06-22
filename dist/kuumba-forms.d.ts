@@ -1,4 +1,4 @@
-declare module 'kuumba-forms/src/Renderer/Brushes/Brush' {
+declare module 'KuumbaForms/Renderer/Brushes/Brush' {
 	export enum BrushTypes {
 	    SolidColour = 0,
 	    Image = 1,
@@ -12,7 +12,7 @@ declare module 'kuumba-forms/src/Renderer/Brushes/Brush' {
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/Colour' {
+declare module 'KuumbaForms/Renderer/Colour' {
 	export class Colour {
 	    Red: number;
 	    Green: number;
@@ -23,15 +23,15 @@ declare module 'kuumba-forms/src/Renderer/Colour' {
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/Pen' {
-	import { Colour } from 'kuumba-forms/src/Renderer/Colour';
+declare module 'KuumbaForms/Renderer/Pen' {
+	import { Colour } from 'KuumbaForms/Renderer/Colour';
 	export class Pen {
 	    StrokeWidth: number;
 	    StrokeColour: Colour;
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/Position' {
+declare module 'KuumbaForms/Renderer/Position' {
 	export class Position {
 	    X: number;
 	    Y: number;
@@ -40,7 +40,7 @@ declare module 'kuumba-forms/src/Renderer/Position' {
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/Rect' {
+declare module 'KuumbaForms/Renderer/Rect' {
 	export class Rect {
 	    X: number;
 	    Y: number;
@@ -52,17 +52,17 @@ declare module 'kuumba-forms/src/Renderer/Rect' {
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/Font' {
+declare module 'KuumbaForms/Renderer/Font' {
 	export class Font {
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/IRenderer' {
-	import { Brush } from 'kuumba-forms/src/Renderer/Brushes/Brush';
-	import { Pen } from 'kuumba-forms/src/Renderer/Pen';
-	import { Position } from 'kuumba-forms/src/Renderer/Position';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { Font } from 'kuumba-forms/src/Renderer/Font';
+declare module 'KuumbaForms/Renderer/IRenderer' {
+	import { Brush } from 'KuumbaForms/Renderer/Brushes/Brush';
+	import { Pen } from 'KuumbaForms/Renderer/Pen';
+	import { Position } from 'KuumbaForms/Renderer/Position';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { Font } from 'KuumbaForms/Renderer/Font';
 	export enum ImageDrawRectMismatch {
 	    ClampToSource = 0,
 	    StretchToDestination = 1,
@@ -80,7 +80,7 @@ declare module 'kuumba-forms/src/Renderer/IRenderer' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Padding' {
+declare module 'KuumbaForms/Forms/Padding' {
 	export class Padding {
 	    Left: number;
 	    Right: number;
@@ -94,8 +94,8 @@ declare module 'kuumba-forms/src/Forms/Padding' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/AnchorStyle' {
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
+declare module 'KuumbaForms/Forms/AnchorStyle' {
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
 	export class AnchorStyle {
 	    AnchorLeft: boolean;
 	    AnchorRight: boolean;
@@ -113,9 +113,9 @@ declare module 'kuumba-forms/src/Forms/AnchorStyle' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/DockStyle' {
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { Padding } from 'kuumba-forms/src/Forms/Padding';
+declare module 'KuumbaForms/Forms/DockStyle' {
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { Padding } from 'KuumbaForms/Forms/Padding';
 	export enum DockStyle {
 	    Top = 0,
 	    Left = 1,
@@ -127,9 +127,9 @@ declare module 'kuumba-forms/src/Forms/DockStyle' {
 	export function GetDockStyleBounds(dock: DockStyle, availableBounds: Rect, currentBounds: Rect, boundMargins: Padding): Rect;
 
 }
-declare module 'kuumba-forms/src/Forms/AlignmentStyle' {
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { Padding } from 'kuumba-forms/src/Forms/Padding';
+declare module 'KuumbaForms/Forms/AlignmentStyle' {
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { Padding } from 'KuumbaForms/Forms/Padding';
 	export enum AlignmentStyle {
 	    None = 0,
 	    TopLeft = 1,
@@ -145,7 +145,7 @@ declare module 'kuumba-forms/src/Forms/AlignmentStyle' {
 	export function GetAlignmentStyleBounds(alignment: AlignmentStyle, currentBounds: Rect, currentBoundsMargin: Padding, parentBounds: Rect, parentBoundsPadding: Padding): Rect;
 
 }
-declare module 'kuumba-forms/src/Renderer/Size' {
+declare module 'KuumbaForms/Renderer/Size' {
 	export class Size {
 	    Width: number;
 	    Height: number;
@@ -154,22 +154,22 @@ declare module 'kuumba-forms/src/Renderer/Size' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Layouts/ILayoutEngine' {
-	import { Control } from 'kuumba-forms/src/Forms/Controls/Control';
+declare module 'KuumbaForms/Forms/Layouts/ILayoutEngine' {
+	import { Control } from 'KuumbaForms/Forms/Controls/Control';
 	export interface ILayoutEngine {
 	    PerformLayout(control: Control): any;
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/StyleComponent' {
-	import { AnchorStyle } from 'kuumba-forms/src/Forms/AnchorStyle';
-	import { AlignmentStyle } from 'kuumba-forms/src/Forms/AlignmentStyle';
-	import { Size } from 'kuumba-forms/src/Renderer/Size';
-	import { Position } from 'kuumba-forms/src/Renderer/Position';
-	import { Brush } from 'kuumba-forms/src/Renderer/Brushes/Brush';
-	import { Pen } from 'kuumba-forms/src/Renderer/Pen';
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
+declare module 'KuumbaForms/Forms/Theming/StyleComponents/StyleComponent' {
+	import { AnchorStyle } from 'KuumbaForms/Forms/AnchorStyle';
+	import { AlignmentStyle } from 'KuumbaForms/Forms/AlignmentStyle';
+	import { Size } from 'KuumbaForms/Renderer/Size';
+	import { Position } from 'KuumbaForms/Renderer/Position';
+	import { Brush } from 'KuumbaForms/Renderer/Brushes/Brush';
+	import { Pen } from 'KuumbaForms/Renderer/Pen';
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
 	export enum StyleComponentTypes {
 	    TextGraphic = 0,
 	    CircleGraphic = 1,
@@ -195,7 +195,7 @@ declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/StyleComponent' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Controls/Property' {
+declare module 'KuumbaForms/Forms/Controls/Property' {
 	export enum PropertyTypes {
 	    Integer = 0,
 	    Float = 1,
@@ -214,11 +214,11 @@ declare module 'kuumba-forms/src/Forms/Controls/Property' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Theming/StyleClass' {
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { StyleComponent } from 'kuumba-forms/src/Forms/Theming/StyleComponents/StyleComponent';
-	import { Property } from 'kuumba-forms/src/Forms/Controls/Property';
+declare module 'KuumbaForms/Forms/Theming/StyleClass' {
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { StyleComponent } from 'KuumbaForms/Forms/Theming/StyleComponents/StyleComponent';
+	import { Property } from 'KuumbaForms/Forms/Controls/Property';
 	export class StyleClass {
 	    Name: string;
 	    Components: StyleComponent[];
@@ -229,12 +229,12 @@ declare module 'kuumba-forms/src/Forms/Theming/StyleClass' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Theming/Style' {
-	import { StyleClass } from 'kuumba-forms/src/Forms/Theming/StyleClass';
-	import { StyleComponent } from 'kuumba-forms/src/Forms/Theming/StyleComponents/StyleComponent';
-	import { Property } from 'kuumba-forms/src/Forms/Controls/Property';
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
+declare module 'KuumbaForms/Forms/Theming/Style' {
+	import { StyleClass } from 'KuumbaForms/Forms/Theming/StyleClass';
+	import { StyleComponent } from 'KuumbaForms/Forms/Theming/StyleComponents/StyleComponent';
+	import { Property } from 'KuumbaForms/Forms/Controls/Property';
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
 	export class Style {
 	    Name: string;
 	    StyleProperties: Property[];
@@ -251,7 +251,7 @@ declare module 'kuumba-forms/src/Forms/Theming/Style' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Events/Events' {
+declare module 'KuumbaForms/Forms/Events/Events' {
 	export class Event {
 	    Code: number;
 	    constructor(code: number);
@@ -269,8 +269,8 @@ declare module 'kuumba-forms/src/Forms/Events/Events' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Events/PointerEvents' {
-	import { Event } from 'kuumba-forms/src/Forms/Events/Events';
+declare module 'KuumbaForms/Forms/Events/PointerEvents' {
+	import { Event } from 'KuumbaForms/Forms/Events/Events';
 	export enum PointerButtons {
 	    None = 0,
 	    Left = 1,
@@ -295,8 +295,8 @@ declare module 'kuumba-forms/src/Forms/Events/PointerEvents' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Events/KeyboardEvents' {
-	import { Event } from 'kuumba-forms/src/Forms/Events/Events';
+declare module 'KuumbaForms/Forms/Events/KeyboardEvents' {
+	import { Event } from 'KuumbaForms/Forms/Events/Events';
 	export enum KeyboardEventTypes {
 	    KeyDown = 8,
 	    KeyUp = 9,
@@ -317,13 +317,13 @@ declare module 'kuumba-forms/src/Forms/Events/KeyboardEvents' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Events/ControlEvents' {
-	import { Event } from 'kuumba-forms/src/Forms/Events/Events';
-	import { Control } from 'kuumba-forms/src/Forms/Controls/Control';
-	import { PointerEvent, PointerEventTypes, PointerButtons } from 'kuumba-forms/src/Forms/Events/PointerEvents';
-	import { KeyboardEvent, KeyboardEventTypes, KeyboardState } from 'kuumba-forms/src/Forms/Events/KeyboardEvents';
-	import { Size } from 'kuumba-forms/src/Renderer/Size';
-	import { Position } from 'kuumba-forms/src/Renderer/Position';
+declare module 'KuumbaForms/Forms/Events/ControlEvents' {
+	import { Event } from 'KuumbaForms/Forms/Events/Events';
+	import { Control } from 'KuumbaForms/Forms/Controls/Control';
+	import { PointerEvent, PointerEventTypes, PointerButtons } from 'KuumbaForms/Forms/Events/PointerEvents';
+	import { KeyboardEvent, KeyboardEventTypes, KeyboardState } from 'KuumbaForms/Forms/Events/KeyboardEvents';
+	import { Size } from 'KuumbaForms/Renderer/Size';
+	import { Position } from 'KuumbaForms/Renderer/Position';
 	export enum ControlEventTypes {
 	    Resize = 0,
 	    Moved = 1,
@@ -366,20 +366,20 @@ declare module 'kuumba-forms/src/Forms/Events/ControlEvents' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Controls/Control' {
-	import { Padding } from 'kuumba-forms/src/Forms/Padding';
-	import { AnchorStyle } from 'kuumba-forms/src/Forms/AnchorStyle';
-	import { DockStyle } from 'kuumba-forms/src/Forms/DockStyle';
-	import { AlignmentStyle } from 'kuumba-forms/src/Forms/AlignmentStyle';
-	import { Size } from 'kuumba-forms/src/Renderer/Size';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { Position } from 'kuumba-forms/src/Renderer/Position';
-	import { ILayoutEngine } from 'kuumba-forms/src/Forms/Layouts/ILayoutEngine';
-	import { Style } from 'kuumba-forms/src/Forms/Theming/Style';
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
-	import { ControlPointerEvent, ControlKeyboardEvent } from 'kuumba-forms/src/Forms/Events/ControlEvents';
-	import { Event, EventNotifier } from 'kuumba-forms/src/Forms/Events/Events';
-	import { Property } from 'kuumba-forms/src/Forms/Controls/Property';
+declare module 'KuumbaForms/Forms/Controls/Control' {
+	import { Padding } from 'KuumbaForms/Forms/Padding';
+	import { AnchorStyle } from 'KuumbaForms/Forms/AnchorStyle';
+	import { DockStyle } from 'KuumbaForms/Forms/DockStyle';
+	import { AlignmentStyle } from 'KuumbaForms/Forms/AlignmentStyle';
+	import { Size } from 'KuumbaForms/Renderer/Size';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { Position } from 'KuumbaForms/Renderer/Position';
+	import { ILayoutEngine } from 'KuumbaForms/Forms/Layouts/ILayoutEngine';
+	import { Style } from 'KuumbaForms/Forms/Theming/Style';
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
+	import { ControlPointerEvent, ControlKeyboardEvent } from 'KuumbaForms/Forms/Events/ControlEvents';
+	import { Event, EventNotifier } from 'KuumbaForms/Forms/Events/Events';
+	import { Property } from 'KuumbaForms/Forms/Controls/Property';
 	export var ControlClasses: {
 	    Default: string;
 	    Pressed: string;
@@ -468,9 +468,9 @@ declare module 'kuumba-forms/src/Forms/Controls/Control' {
 	}
 
 }
-declare module 'kuumba-forms/src/KuumbaForms' {
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
-	import { Control } from 'kuumba-forms/src/Forms/Controls/Control';
+declare module 'KuumbaForms/KuumbaForms' {
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
+	import { Control } from 'KuumbaForms/Forms/Controls/Control';
 	export class InitialisationOptions {
 	    Element: HTMLCanvasElement;
 	    Maximized: boolean;
@@ -486,15 +486,15 @@ declare module 'kuumba-forms/src/KuumbaForms' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Controls/TextControl' {
-	import { Control } from 'kuumba-forms/src/Forms/Controls/Control';
-	import { AlignmentStyle } from 'kuumba-forms/src/Forms/AlignmentStyle';
-	import { Font } from 'kuumba-forms/src/Renderer/Font';
-	import { Position } from 'kuumba-forms/src/Renderer/Position';
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
-	import { Brush } from 'kuumba-forms/src/Renderer/Brushes/Brush';
-	import { Pen } from 'kuumba-forms/src/Renderer/Pen';
-	import { Property } from 'kuumba-forms/src/Forms/Controls/Property';
+declare module 'KuumbaForms/Forms/Controls/TextControl' {
+	import { Control } from 'KuumbaForms/Forms/Controls/Control';
+	import { AlignmentStyle } from 'KuumbaForms/Forms/AlignmentStyle';
+	import { Font } from 'KuumbaForms/Renderer/Font';
+	import { Position } from 'KuumbaForms/Renderer/Position';
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
+	import { Brush } from 'KuumbaForms/Renderer/Brushes/Brush';
+	import { Pen } from 'KuumbaForms/Renderer/Pen';
+	import { Property } from 'KuumbaForms/Forms/Controls/Property';
 	export class TextControl extends Control {
 	    protected _Font: Font;
 	    protected _Text: string;
@@ -511,12 +511,12 @@ declare module 'kuumba-forms/src/Forms/Controls/TextControl' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Controls/EditableTextControl' {
-	import { TextControl } from 'kuumba-forms/src/Forms/Controls/TextControl';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { Style } from 'kuumba-forms/src/Forms/Theming/Style';
-	import { ControlKeyboardEvent } from 'kuumba-forms/src/Forms/Events/ControlEvents';
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
+declare module 'KuumbaForms/Forms/Controls/EditableTextControl' {
+	import { TextControl } from 'KuumbaForms/Forms/Controls/TextControl';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { Style } from 'KuumbaForms/Forms/Theming/Style';
+	import { ControlKeyboardEvent } from 'KuumbaForms/Forms/Events/ControlEvents';
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
 	export class TextState {
 	    Text: string;
 	    CaretLine: number;
@@ -563,9 +563,9 @@ declare module 'kuumba-forms/src/Forms/Controls/EditableTextControl' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Layouts/HorizontalLayoutEngine' {
-	import { ILayoutEngine } from 'kuumba-forms/src/Forms/Layouts/ILayoutEngine';
-	import { Control } from 'kuumba-forms/src/Forms/Controls/Control';
+declare module 'KuumbaForms/Forms/Layouts/HorizontalLayoutEngine' {
+	import { ILayoutEngine } from 'KuumbaForms/Forms/Layouts/ILayoutEngine';
+	import { Control } from 'KuumbaForms/Forms/Controls/Control';
 	export enum HorizontalLayoutControlAlignment {
 	    Top = 0,
 	    Middle = 1,
@@ -583,11 +583,11 @@ declare module 'kuumba-forms/src/Forms/Layouts/HorizontalLayoutEngine' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Layouts/StandardLayoutEngine' {
-	import { ILayoutEngine } from 'kuumba-forms/src/Forms/Layouts/ILayoutEngine';
-	import { Control } from 'kuumba-forms/src/Forms/Controls/Control';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { Padding } from 'kuumba-forms/src/Forms/Padding';
+declare module 'KuumbaForms/Forms/Layouts/StandardLayoutEngine' {
+	import { ILayoutEngine } from 'KuumbaForms/Forms/Layouts/ILayoutEngine';
+	import { Control } from 'KuumbaForms/Forms/Controls/Control';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { Padding } from 'KuumbaForms/Forms/Padding';
 	export class StandardLayoutEngine implements ILayoutEngine {
 	    protected CalculateAnchorStyleBounds(control: Control, parentBounds: Rect): void;
 	    protected CalculateAlignmentStyleBounds(control: Control, parentBounds: Rect, padding: Padding): void;
@@ -596,9 +596,9 @@ declare module 'kuumba-forms/src/Forms/Layouts/StandardLayoutEngine' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Layouts/VerticalLayoutEngine' {
-	import { ILayoutEngine } from 'kuumba-forms/src/Forms/Layouts/ILayoutEngine';
-	import { Control } from 'kuumba-forms/src/Forms/Controls/Control';
+declare module 'KuumbaForms/Forms/Layouts/VerticalLayoutEngine' {
+	import { ILayoutEngine } from 'KuumbaForms/Forms/Layouts/ILayoutEngine';
+	import { Control } from 'KuumbaForms/Forms/Controls/Control';
 	export class VerticalLayoutEngine implements ILayoutEngine {
 	    ChildWidthToParent: boolean;
 	    WidthToContents: boolean;
@@ -609,8 +609,8 @@ declare module 'kuumba-forms/src/Forms/Layouts/VerticalLayoutEngine' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Theming/Theme' {
-	import { Style } from 'kuumba-forms/src/Forms/Theming/Style';
+declare module 'KuumbaForms/Forms/Theming/Theme' {
+	import { Style } from 'KuumbaForms/Forms/Theming/Style';
 	export class Theme {
 	    Name: string;
 	    Version: string;
@@ -629,10 +629,10 @@ declare module 'kuumba-forms/src/Forms/Theming/Theme' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/CircleGraphic' {
-	import { StyleComponent } from 'kuumba-forms/src/Forms/Theming/StyleComponents/StyleComponent';
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
+declare module 'KuumbaForms/Forms/Theming/StyleComponents/CircleGraphic' {
+	import { StyleComponent } from 'KuumbaForms/Forms/Theming/StyleComponents/StyleComponent';
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
 	export class CircleGraphic extends StyleComponent {
 	    Radius: number;
 	    RadiusToBounds: boolean;
@@ -641,10 +641,10 @@ declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/CircleGraphic' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/ImageGraphic' {
-	import { StyleComponent } from 'kuumba-forms/src/Forms/Theming/StyleComponents/StyleComponent';
-	import { IRenderer, ImageDrawRectMismatch } from 'kuumba-forms/src/Renderer/IRenderer';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
+declare module 'KuumbaForms/Forms/Theming/StyleComponents/ImageGraphic' {
+	import { StyleComponent } from 'KuumbaForms/Forms/Theming/StyleComponents/StyleComponent';
+	import { IRenderer, ImageDrawRectMismatch } from 'KuumbaForms/Renderer/IRenderer';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
 	export class ImageGraphic extends StyleComponent {
 	    Path: string;
 	    ImageDrawOptions: ImageDrawRectMismatch;
@@ -653,11 +653,11 @@ declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/ImageGraphic' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/LineGraphic' {
-	import { StyleComponent } from 'kuumba-forms/src/Forms/Theming/StyleComponents/StyleComponent';
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { Position } from 'kuumba-forms/src/Renderer/Position';
+declare module 'KuumbaForms/Forms/Theming/StyleComponents/LineGraphic' {
+	import { StyleComponent } from 'KuumbaForms/Forms/Theming/StyleComponents/StyleComponent';
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { Position } from 'KuumbaForms/Renderer/Position';
 	export class LineGraphic extends StyleComponent {
 	    LineTo: Position;
 	    constructor(name: string);
@@ -665,20 +665,20 @@ declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/LineGraphic' {
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/RectangleGraphic' {
-	import { StyleComponent } from 'kuumba-forms/src/Forms/Theming/StyleComponents/StyleComponent';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
+declare module 'KuumbaForms/Forms/Theming/StyleComponents/RectangleGraphic' {
+	import { StyleComponent } from 'KuumbaForms/Forms/Theming/StyleComponents/StyleComponent';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
 	export class RectangleGraphic extends StyleComponent {
 	    constructor(name: string);
 	    RenderComponent(renderer: IRenderer, bounds: Rect): void;
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/RoundedRectangleGraphic' {
-	import { StyleComponent } from 'kuumba-forms/src/Forms/Theming/StyleComponents/StyleComponent';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
+declare module 'KuumbaForms/Forms/Theming/StyleComponents/RoundedRectangleGraphic' {
+	import { StyleComponent } from 'KuumbaForms/Forms/Theming/StyleComponents/StyleComponent';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
 	export class RoundedRectangleGraphic extends StyleComponent {
 	    BorderRadius: number;
 	    constructor(name: string);
@@ -686,11 +686,11 @@ declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/RoundedRectangleG
 	}
 
 }
-declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/TextGraphic' {
-	import { StyleComponent } from 'kuumba-forms/src/Forms/Theming/StyleComponents/StyleComponent';
-	import { IRenderer } from 'kuumba-forms/src/Renderer/IRenderer';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { Font } from 'kuumba-forms/src/Renderer/Font';
+declare module 'KuumbaForms/Forms/Theming/StyleComponents/TextGraphic' {
+	import { StyleComponent } from 'KuumbaForms/Forms/Theming/StyleComponents/StyleComponent';
+	import { IRenderer } from 'KuumbaForms/Renderer/IRenderer';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { Font } from 'KuumbaForms/Renderer/Font';
 	export class TextGraphic extends StyleComponent {
 	    Font: Font;
 	    Text: string;
@@ -699,9 +699,9 @@ declare module 'kuumba-forms/src/Forms/Theming/StyleComponents/TextGraphic' {
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/Brushes/SolidColourBrush' {
-	import { Brush } from 'kuumba-forms/src/Renderer/Brushes/Brush';
-	import { Colour } from 'kuumba-forms/src/Renderer/Colour';
+declare module 'KuumbaForms/Renderer/Brushes/SolidColourBrush' {
+	import { Brush } from 'KuumbaForms/Renderer/Brushes/Brush';
+	import { Colour } from 'KuumbaForms/Renderer/Colour';
 	export class SolidColourBrush extends Brush {
 	    protected _Colour: Colour;
 	    constructor(colour?: Colour);
@@ -709,9 +709,9 @@ declare module 'kuumba-forms/src/Renderer/Brushes/SolidColourBrush' {
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/Brushes/GradientBrush' {
-	import { Brush, BrushTypes } from 'kuumba-forms/src/Renderer/Brushes/Brush';
-	import { Colour } from 'kuumba-forms/src/Renderer/Colour';
+declare module 'KuumbaForms/Renderer/Brushes/GradientBrush' {
+	import { Brush, BrushTypes } from 'KuumbaForms/Renderer/Brushes/Brush';
+	import { Colour } from 'KuumbaForms/Renderer/Colour';
 	export class GradientBrush extends Brush {
 	    private _ColourStops;
 	    constructor(type: BrushTypes);
@@ -720,8 +720,8 @@ declare module 'kuumba-forms/src/Renderer/Brushes/GradientBrush' {
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/Brushes/LinearGradient' {
-	import { GradientBrush } from 'kuumba-forms/src/Renderer/Brushes/GradientBrush';
+declare module 'KuumbaForms/Renderer/Brushes/LinearGradient' {
+	import { GradientBrush } from 'KuumbaForms/Renderer/Brushes/GradientBrush';
 	export class LinearGradient extends GradientBrush {
 	    X1: number;
 	    Y1: number;
@@ -731,8 +731,8 @@ declare module 'kuumba-forms/src/Renderer/Brushes/LinearGradient' {
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/Brushes/RadialGradient' {
-	import { GradientBrush } from 'kuumba-forms/src/Renderer/Brushes/GradientBrush';
+declare module 'KuumbaForms/Renderer/Brushes/RadialGradient' {
+	import { GradientBrush } from 'KuumbaForms/Renderer/Brushes/GradientBrush';
 	export class RadialGradient extends GradientBrush {
 	    X1: number;
 	    Y1: number;
@@ -744,14 +744,14 @@ declare module 'kuumba-forms/src/Renderer/Brushes/RadialGradient' {
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/Canvas2dRenderer' {
-	import { IRenderer, ImageDrawRectMismatch } from 'kuumba-forms/src/Renderer/IRenderer';
-	import { Brush } from 'kuumba-forms/src/Renderer/Brushes/Brush';
-	import { Pen } from 'kuumba-forms/src/Renderer/Pen';
-	import { Position } from 'kuumba-forms/src/Renderer/Position';
-	import { Rect } from 'kuumba-forms/src/Renderer/Rect';
-	import { Font } from 'kuumba-forms/src/Renderer/Font';
-	import { GradientBrush } from 'kuumba-forms/src/Renderer/Brushes/GradientBrush';
+declare module 'KuumbaForms/Renderer/Canvas2dRenderer' {
+	import { IRenderer, ImageDrawRectMismatch } from 'KuumbaForms/Renderer/IRenderer';
+	import { Brush } from 'KuumbaForms/Renderer/Brushes/Brush';
+	import { Pen } from 'KuumbaForms/Renderer/Pen';
+	import { Position } from 'KuumbaForms/Renderer/Position';
+	import { Rect } from 'KuumbaForms/Renderer/Rect';
+	import { Font } from 'KuumbaForms/Renderer/Font';
+	import { GradientBrush } from 'KuumbaForms/Renderer/Brushes/GradientBrush';
 	export class Canvas2dRenderer implements IRenderer {
 	    protected Context: CanvasRenderingContext2D;
 	    constructor(canvas: HTMLCanvasElement);
@@ -769,8 +769,8 @@ declare module 'kuumba-forms/src/Renderer/Canvas2dRenderer' {
 	}
 
 }
-declare module 'kuumba-forms/src/Renderer/Brushes/ImageBrush' {
-	import { Brush } from 'kuumba-forms/src/Renderer/Brushes/Brush';
+declare module 'KuumbaForms/Renderer/Brushes/ImageBrush' {
+	import { Brush } from 'KuumbaForms/Renderer/Brushes/Brush';
 	export class ImageBrush extends Brush {
 	    constructor();
 	}

@@ -1,8 +1,8 @@
 //generate the typing file
 require('dts-generator').default({
-    name: 'kuumba-forms',
-    project: './',
-    out: '../dist/kuumba-forms.d.ts'
+    name: 'KuumbaForms',
+    project: './src/',
+    out: './dist/kuumba-forms.d.ts'
 });
 
 //bundle
