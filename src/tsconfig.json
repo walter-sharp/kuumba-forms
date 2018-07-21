@@ -2,8 +2,14 @@
     "exclude": [
         "node_modules"
     ],
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es2015"
+    "compilerOptions": 
+    {
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "module": "system",
+        "target": "es2015",
+        "outFile": "../dist/kuumba-forms.js"       
     }
 }

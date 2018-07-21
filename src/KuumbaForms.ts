@@ -36,7 +36,7 @@ export class KuumbaForms
         let requestId = requestAnimationFrame(this.Paint);
 
         try 
-        {
+        {            
             this._Options.RootControl.Paint(this._Options.Renderer);
         }
         catch(ex)
