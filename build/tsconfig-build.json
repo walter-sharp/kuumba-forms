@@ -3,7 +3,8 @@
         "node_modules","dist", "build"
 	],
 	"include": [
-		"../src/*"
+		"../src/*",
+		"../src/Renderer/Canvas2dRenderer.ts"
 	],
     "compilerOptions": 
     {
@@ -16,6 +17,6 @@
 		"target": "es2015",
 		"emitDeclarationOnly": true,
 		"sourceMap": false,
-		"outFile": "../dist/kuumba-forms.d.ts"        
+		"outFile": "../dist/kuumba-forms.d.ts"
     }
 }

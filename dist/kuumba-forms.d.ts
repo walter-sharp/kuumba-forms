@@ -463,3 +463,68 @@ declare module "KuumbaForms" {
         BeginAnimationLoop(): void;
     }
 }
+declare module "Renderer/Brushes/SolidColourBrush" {
+    import { Brush } from "Renderer/Brushes/Brush";
+    import { Colour } from "Renderer/Colour";
+    export class SolidColourBrush extends Brush {
+        protected _Colour: Colour;
+        constructor(colour?: Colour);
+        Colour: Colour;
+    }
+}
+declare module "Renderer/Brushes/GradientBrush" {
+    import { Brush, BrushTypes } from "Renderer/Brushes/Brush";
+    import { Colour } from "Renderer/Colour";
+    export class GradientBrush extends Brush {
+        private _ColourStops;
+        constructor(type: BrushTypes);
+        AddColourStop(colourStop: Colour): void;
+        readonly ColourStops: Array<Colour>;
+    }
+}
+declare module "Renderer/Brushes/LinearGradient" {
+    import { GradientBrush } from "Renderer/Brushes/GradientBrush";
+    export class LinearGradient extends GradientBrush {
+        X1: number;
+        Y1: number;
+        X2: number;
+        Y2: number;
+        constructor(x1: number, y1: number, x2: number, y2: number);
+    }
+}
+declare module "Renderer/Brushes/RadialGradient" {
+    import { GradientBrush } from "Renderer/Brushes/GradientBrush";
+    export class RadialGradient extends GradientBrush {
+        X1: number;
+        Y1: number;
+        R1: number;
+        X2: number;
+        Y2: number;
+        R2: number;
+        constructor(x1: number, y1: number, r1: number, x2: number, y2: number, r2: number);
+    }
+}
+declare module "Renderer/Canvas2dRenderer" {
+    import { IRenderer, ImageDrawRectMismatch } from "Renderer/IRenderer";
+    import { Brush } from "Renderer/Brushes/Brush";
+    import { Pen } from "Renderer/Pen";
+    import { Position } from "Renderer/Position";
+    import { Rect } from "Renderer/Rect";
+    import { Font } from "Renderer/Font";
+    import { GradientBrush } from "Renderer/Brushes/GradientBrush";
+    export class Canvas2dRenderer implements IRenderer {
+        protected Context: CanvasRenderingContext2D;
+        constructor(canvas: HTMLCanvasElement);
+        protected LoadColourStops(brush: GradientBrush, gradient: CanvasGradient): void;
+        protected LoadFillStyle(brush: Brush): string | CanvasGradient;
+        protected LoadStyles(brush: Brush, pen: Pen): void;
+        protected FinaliseShape(): void;
+        DrawCircle(radius: number, position: Position, brush: Brush, pen: Pen): void;
+        DrawImage(path: string, sourceRect: Rect, destinationRect: Rect, rectMismatchOption: ImageDrawRectMismatch): void;
+        DrawLine(start: Position, end: Position, pen: Pen): void;
+        DrawRectangle(rect: Rect, brush: Brush, pen: Pen): void;
+        DrawRoundedRectangle(rect: Rect, brush: Brush, pen: Pen, radius: number): void;
+        DrawText(text: string, rect: Rect, font: Font, brush: Brush, pen: Pen): void;
+        GetTextSize(text: string, font: Font): Rect;
+    }
+}
