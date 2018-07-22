@@ -1,32 +1,73 @@
 const { exec } = require('child_process');
 
+function LogDivider()
+{
+	console.log("");
+	console.log("-------------------------------------------------------------------------------------------------");	
+	console.log("");
+}
+
+function Transpile(configPath, successCallback, errorCallback)
+{
+	exec("tsc --p " + configPath, (error, out, stderr) =>
+	{
+    	if(error)
+    	{
+			console.error("An error ocurred executing the command: Name: " + error.name + " | Message: " + error.message);   
+        	console.error(stderr);
+
+			errorCallback();
+    	}
+    	else
+    	{
+        	if(out != null && out != "")
+        	{
+            	console.log(out);
+        	}         
+			
+			successCallback();
+    	}
+	});
+}
+
 console.log("");
 console.log(" --- Kuumba Forms Dev Build --- ");
+
+LogDivider();
+
+console.log("1/2: Transpiling.");
 console.log("");
-console.log("Generating d.ts file...");
-
-require('dts-generator').default({
-    name: 'KuumbaForms',
-    project: './src/',
-    out: './dist/kuumba-forms.d.ts'
-});
-
 console.log("Running tsc on ./src/tsconfig.json...");
+console.log("");
 
-exec("tsc --p .\\src\\tsconfig.json", (error, out, stderr) =>
+Transpile("./src/tsconfig.json", () =>
 {
-    if(error)
-    {
-        console.error("An error ocurred executing the command: Name: " + error.name + " | Message: " + error.message);   
-        console.log(stderr);         
-    }
-    else  
-    {
-        if(out != null && out != "")
-        {
-            console.log(out);
-        }
-          
-        console.log("tsc compile successful");
-    }
+	console.log("1/2: Transpiling Successful.");
+	GenerateDtsFile();
+}, 
+() =>
+{	
+	console.error("1/2: Transpiling Failed.");
 });
+
+function GenerateDtsFile()
+{
+	LogDivider();
+	console.log("2/2: Generating d.ts File.");
+	console.log("");
+	console.log("Running tsc on ./build/tsconfig-build.json");
+	console.log("");
+
+	Transpile("./build/tsconfig-build.json", () =>
+	{
+		console.log("2/2: Generating d.ts File Successful.");	
+		LogDivider();	
+		console.log("--- Kuumba Build Succeeded! ---");
+	}, 
+	() =>
+	{
+		console.error("2/2: Generating d.ts File Failed.");
+		LogDivider();
+		console.error("--- Kuumba Build Failed! ---");
+	});	
+}

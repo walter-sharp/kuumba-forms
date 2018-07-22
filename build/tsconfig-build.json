@@ -1,0 +1,21 @@
+{
+    "exclude": [
+        "node_modules","dist", "build"
+	],
+	"include": [
+		"../src/*"
+	],
+    "compilerOptions": 
+    {
+        "lib": [
+            "es2015",
+            "dom"
+		],
+		"declaration": true,
+        "module": "system",
+		"target": "es2015",
+		"emitDeclarationOnly": true,
+		"sourceMap": false,
+		"outFile": "../dist/kuumba-forms.d.ts"        
+    }
+}

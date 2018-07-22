@@ -1,6 +1,6 @@
 {
     "exclude": [
-        "node_modules"
+        "node_modules","dist", "build"
     ],
     "compilerOptions": 
     {
@@ -10,6 +10,7 @@
         ],
         "module": "system",
         "target": "es2015",
-        "outFile": "../dist/kuumba-forms.js"       
+		"outFile": "../dist/kuumba-forms.js",
+		"sourceMap": true		
     }
 }
