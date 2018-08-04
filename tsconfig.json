@@ -1,0 +1,18 @@
+{
+    "exclude": [
+        "node_modules","dist", "build"
+	],	
+    "compilerOptions": 
+    {
+        "lib": [
+            "es2015",
+            "dom"
+		],     
+		"baseUrl": "./src/",   
+		"isolatedModules": true,
+		"sourceMap": false,
+		"outDir": "./js/",
+		"target": "es2015",
+		"module": "es2015"	
+    }
+}

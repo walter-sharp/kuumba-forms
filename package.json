@@ -1,11 +1,7 @@
 {
   "name": "kuumba-forms",
   "version": "0.0.1",
-  "description": "Visual app development framework for the web.",
-  "main": "kuumba-forms.js",
-  "scripts": {
-    "dev-build": "node ./build/dev-build.js"
-  },
+  "description": "Visual app development framework for the web.",  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/walter-sharp/kuumba-forms.git"
