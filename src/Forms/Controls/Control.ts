@@ -69,21 +69,35 @@ export class Control extends EventNotifier
         this._Name = name;
     }
 
+	/**
+	 * Gets the name of the control
+	 */
     public get Name(): string
     {
         return this._Name;
     }
-    
+	
+	/**
+	 * Gets whether or not layout operations for this control have been suspended
+	 */
     public get LayoutSuspended(): boolean
     {
         return this._LayoutSuspended;
     }
 
+	/**
+	 * Sets whether control layout operations are suspended or not
+	 */
     public set LayoutSuspended(suspended: boolean)
     {
         this._LayoutSuspended = suspended;
     }
-    
+	
+	/**
+	 * Draws the control with the given renderer. Rendering will only take place if the control
+	 * is visible and a valid style has been associated with the control
+	 * @param renderer 
+	 */
     Paint(renderer: IRenderer)
     {					
         if (this._Visible == true)
@@ -100,6 +114,9 @@ export class Control extends EventNotifier
         }					
     }
 
+	/**
+	 * Forces the control to request a repaint
+	 */
     RequestPaint()
     {
         if (this._PaintRequestCallback != null)
@@ -108,6 +125,11 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Adds a style class to the control. Any applied style will be provided with the collection of control classes
+	 * for it to use when rendering the control
+	 * @param controlClass A string containing the control class to add
+	 */
     AddControlClass(controlClass: string)
     {
         let classAlreadyApplied: boolean = this.IsControlClassSet(controlClass);
@@ -118,7 +140,11 @@ export class Control extends EventNotifier
             this.RequestPaint();
         }
     }
-    
+	
+	/**
+	 * Removes a control class from the active control classes collection
+	 * @param controlClass A string containing the control class to remove
+	 */
     RemoveControlClass(controlClass: string)
     {
         for (let i = 0; i < this._ActiveControlClasses.length; i++)
@@ -131,7 +157,11 @@ export class Control extends EventNotifier
             }
         }
     }
-    
+	
+	/**
+	 * Returns whether or not the given control style class has been set on the control
+	 * @param controlClass A string containing the control class to test for
+	 */
     IsControlClassSet(controlClass: string)
     {
         for (let i = 0; i < this._ActiveControlClasses.length; i++)
@@ -144,7 +174,11 @@ export class Control extends EventNotifier
                             
         return false;
     }
-                        
+				 
+	/**
+	 * Forces the layout engine applied to the control to layout the control and its children.
+	 * This will cause the control to request a repaint.
+	 */
     PerformLayout()
     {
         if((this._UndergoingLayout == false) && (this._LayoutSuspended == false))
@@ -161,21 +195,36 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Gets the number of children belonging to this control
+	 */
     public get ChildCount(): number
     {
         return this._Children.length;
     }
 
+	/**
+	 * Gets a child control at the given index. This method does not apply bounds checking before 
+	 * returning the child.
+	 * @param index The index of the control to retrieve
+	 */
     GetChildAtIndex(index: number): Control
     {
         return this._Children[index];
     }
 
+	/**
+	 * Gets the control's parent control
+	 */
     public get Parent(): Control
     {
         return this._Parent;
     }
-    
+	
+	/**
+	 * Adds a control as a child
+	 * @param child The child control to add
+	 */
     AddChildControl(child: Control)
     {					
         if (child.Parent == null)
@@ -187,6 +236,10 @@ export class Control extends EventNotifier
         }					
     }
 
+	/**
+	 * Removes a child control
+	 * @param child The child control to remove
+	 */
     RemoveChildControl(child: Control)
     {
         if (child.Parent == this)
@@ -202,6 +255,10 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Removes a child control at the given index
+	 * @param index The index of the child control to remove
+	 */
     RemoveChildControlAtIndex(index: number)
     {
         if ((index >= 0) && (index < this._Children.length))
@@ -218,6 +275,11 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Sets the position of the control within its parent
+	 * @param x The X coordinate
+	 * @param y The Y coordinate
+	 */
     SetPosition(x: number, y: number)
     {
         if ((this._Position.X != x) || (this._Position.Y != y))
@@ -231,11 +293,19 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Gets the position of the control within its parent
+	 */
     public get Position(): Position
     {
         return this._Position;
     }
 
+	/**
+	 * Sets the width and height of the control
+	 * @param width The new width of the control
+	 * @param height The new height of the control
+	 */
     SetSize(width: number, height: number)
     {
         if ((this._Size.Width != width) || (this._Size.Height != height))
@@ -258,16 +328,25 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Gets the size of the control
+	 */
     public get Size(): Size
     {
         return this._Size;
     }
 
+	/**
+	 * Gets the aplied anchor style for the control
+	 */
     public get Anchor(): AnchorStyle
     {
         return this._Anchor;
     }
 
+	/**
+	 * Sets the anchor style for the control
+	 */
     public set Anchor(anchor: AnchorStyle)
     {
         this._Dock = DockStyle.None;
@@ -281,11 +360,17 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Gets the dock style for the control
+	 */
     public get Dock(): DockStyle
     {
         return this._Dock;
     }
-    
+	
+	/**
+	 * Sets the dock style for the control
+	 */
     public set Dock(dock: DockStyle)
     {
         this._Anchor.ClearAnchorStyle();
@@ -299,11 +384,17 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Gets the alignment style for the control
+	 */
     public get Alignment(): AlignmentStyle
     {
         return this._Alignment;
     }
-    
+	
+	/**
+	 * Sets the alignment style for the control
+	 */
     public set Alignment(alignment: AlignmentStyle)
     {
         this._Dock = DockStyle.None;
@@ -317,22 +408,34 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Gets the internal padding for the control
+	 */
     public get Padding(): Padding
     {
         return this._Padding;
     }
 
+	/**
+	 * Sets the internal padding for the control
+	 */
     public set Padding(padding: Padding)
     {
         this._Padding = padding;
         this.PerformLayout();
     }
 
+	/**
+	 * Gets the external margins for the control
+	 */
     public get Margins(): Padding
     {
         return this._Margins;
     }
 
+	/**
+	 * Sets the external margins for the control
+	 */
     public set Margins(margins: Padding)
     {
         this._Margins = margins;
@@ -343,6 +446,9 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Gets a rectangle containing the control's calculated bounds relative to its parent
+	 */
     public get Bounds(): Rect
     {
         let bounds = new Rect(this._Position.X, this._Position.Y, this._Size.Width, this._Size.Height);
@@ -350,6 +456,9 @@ export class Control extends EventNotifier
         return bounds;
     }
 
+	/**
+	 * Gets a rectangle containing the control's calculated bounds relative to its display
+	 */
     public get AbsoluteBounds(): Rect
     {
         if(this._Parent != null)
@@ -364,6 +473,10 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Handler method for handling a child control retrieving input focus
+	 * @param control The child control that recieved focus
+	 */
     protected ChildGotFocus(control: Control)
     {
         if (control != this._FocusedChild)
@@ -385,11 +498,17 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Gets whether or not the control has focus
+	 */
     public get Focused(): boolean
     {
         return this._Focused;
     }
 
+	/**
+	 * Sets whether or not the control has focus
+	 */
     public set Focused(focus: boolean)
     {
         let oldFocus = this._Focused;
@@ -439,32 +558,50 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Sets whether or not this control is able to recieve focus
+	 */
     public set Focusable(focusable: boolean)
     {
         this._Focusable = focusable;
     }
 
+	/**
+	 * Gets whether or not this control is able to recieve focus
+	 */
     public get Focusable(): boolean
     {
         return this._Focusable;
     }
 
+	/**
+	 * Gets whether or not this control is visible
+	 */
     public get Visible(): boolean
     { 
         return this._Visible; 
     }
 
+	/**
+	 * Gets whether or not this control is enabled
+	 */
     public get Enabled(): boolean
     { 
         return this._Enabled; 
     }
 
+	/**
+	 * Sets the visibility of the control
+	 */
     public set Visible(visible: boolean) 
     { 
         this._Visible = visible;
         this.RequestPaint();
     }
 
+	/**
+	 * Sets whether or not this control is enabled
+	 */
     public set Enabled(enabled: boolean)
     {
         this._Enabled = enabled;
@@ -479,6 +616,11 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Gets the child control that intersects the given coordinates. If no child control intersects
+	 * the given coordinates, the control will test itself.
+	 * @param position The 2D coordinates to test against
+	 */
     protected GetIntersectingChild(position: Position): Control
     {
         let intersectingChild: Control = null;
@@ -501,6 +643,10 @@ export class Control extends EventNotifier
         return intersectingChild;
     }
 
+	/**
+	 * Provides the control the ability to handle the given event
+	 * @param event The event to handle
+	 */
     HandleEvent(event: Event)
     {
         if (this._Enabled == true)
@@ -579,6 +725,12 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Attempts to determine whether or not the pointer device has left the bounds of a child control, or merely passing over it.
+	 * If the pointer has left the child control, passes the pointer leave event to the child
+	 * @param intersect The child control the pointer is currently over
+	 * @param event The pointer event
+	 */
     protected HandleChildPointerLeaveEvent(intersect: Control, event: ControlPointerEvent)
     {
         event.PointerEvent.Code = PointerEventTypes.PointerLeave;
@@ -600,6 +752,12 @@ export class Control extends EventNotifier
         event.PointerEvent.Code = PointerEventTypes.PointerMove;
     }
 
+	/**
+	 * Attempts to determine whether the pointer has entered the bounds of a child control. If the pointer
+	 * has entered the child, passes the pointer enter event to the child control to handle
+	 * @param intersect The control the pointer is currently over
+	 * @param event The pointer event
+	 */
     protected HandleChildPointerEnterEvent(intersect: Control, event: ControlPointerEvent)
     {
         event.PointerEvent.Code = PointerEventTypes.PointerEnter;
@@ -616,6 +774,10 @@ export class Control extends EventNotifier
         event.PointerEvent.Code = PointerEventTypes.PointerMove;
     }
 
+	/**
+	 * Pointer event exchange method for handling the various pointer events
+	 * @param event The pointer event to handle
+	 */
     protected HandlePointerEvent(event: ControlPointerEvent)
     {
         if (this._Enabled == true)
@@ -649,6 +811,10 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Keyboard event exchange method for handling the various pointer events
+	 * @param event The pointer event to handle
+	 */
     protected HandleKeyboardEvent(event: ControlKeyboardEvent)
     {
         if (this._Enabled == true)
@@ -670,16 +836,28 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Handles the pointer clicked event
+	 * @param event The pointer clicked event object
+	 */
     protected HandleOnPointerClicked(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
     }
 
+	/**
+	 * Handles the pointer double clicked event
+	 * @param event The pointer double clicked event object
+	 */
     protected HandleOnPointerDoubleClicked(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
     }
 
+	/**
+	 * Handles the pointer down event. Sets the control pressed class on the control 
+	 * @param event The pointer down event object
+	 */
     protected HandleOnPointerDown(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
@@ -690,11 +868,19 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Handles the pointer enter event
+	 * @param event The pointer enter event object
+	 */
     protected HandleOnPointerEnter(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
     }
 
+	/**
+	 * Handles the pointer leave event. Removes the hover and pressed style classes from the control
+	 * @param event The pointer leave event object
+	 */
     protected HandleOnPointerLeave(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
@@ -708,6 +894,10 @@ export class Control extends EventNotifier
         this.RemoveControlClass(ControlClasses.Pressed);
     }
 
+	/**
+	 * Handles the pointer move event. Adds the hover style class and removes the default style class
+	 * @param event The pointer move event object
+	 */
     protected HandleOnPointerMove(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
@@ -719,6 +909,10 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Handles the pointer up event. Removes the pressed style class
+	 * @param event The pointer up event
+	 */
     protected HandleOnPointerUp(event: ControlPointerEvent)
     {
         this.NotifyEventSubscribers(event);
@@ -726,27 +920,45 @@ export class Control extends EventNotifier
         this.RemoveControlClass(ControlClasses.Pressed);
     }
 
+	/**
+	 * Handles the key down event
+	 * @param event The key down event object
+	 */
     protected HandleOnKeyDown(event: ControlKeyboardEvent)
     {
         this.NotifyEventSubscribers(event);
     }
 
+	/**
+	 * Handles the key pressed event
+	 * @param event The key pressed event object
+	 */
     protected HandleOnKeyPressed(event: ControlKeyboardEvent)
     {
         this. NotifyEventSubscribers(event);
     }
 
+	/**
+	 * Handles the key up event
+	 * @param event The key up event object
+	 */
     protected HandleOnKeyUp(event: ControlKeyboardEvent)
     {
         this.NotifyEventSubscribers(event);
     }
-    
+	
+	/**
+	 * Sets the layout engine used to layout the control and its children
+	 */
     public set LayoutEngine(engine: ILayoutEngine)
     {
         this._LayoutEngine = engine;
         this.PerformLayout();
     }
 
+	/**
+	 * Sets the style to apply to the control when rendering
+	 */
     public set Style(style: Style)
     {
         this._Style = style;
@@ -754,6 +966,10 @@ export class Control extends EventNotifier
         this.UpdateControlFromStyle();
     }
 
+	/**
+	 * Applies the given property collection to the control's properties
+	 * @param properties The collection of control properties to apply
+	 */
     protected ApplyControlProperties(properties: Array<Property>)
     {				
         for(let i = 0; i < properties.length; i++)
@@ -791,9 +1007,9 @@ export class Control extends EventNotifier
         }
     }
 
-    /// <summary>
-    /// Will update the properties of the control (size, dock, anchor etc...) from it's style
-    /// </summary>
+    /**
+	* Updates the properties of the control (size, dock, anchor etc...) from its applied style
+    */
     protected UpdateControlFromStyle()
     {
         if (this._Style != null)
@@ -811,6 +1027,11 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Sets the callback the control will use when it requires a repaint
+	 * @param callback The callback method the control will call
+	 * @param recursive Whether this callback should be handed to the control's children
+	 */
     SetPaintRequestCallback(callback: () => void, recursive: boolean)
     {
         this._PaintRequestCallback = callback;
@@ -824,6 +1045,10 @@ export class Control extends EventNotifier
         }
     }
 
+	/**
+	 * Provides heartbeat functionality for controls that require repeating logic
+	 * @param time The time the control can use for time sensitive operations
+	 */
     Tick(time: number)
     {
         for (let i = 0; i < this._Children.length; i++)

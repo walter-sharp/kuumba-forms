@@ -18,7 +18,7 @@ export class StandardLayoutEngine implements ILayoutEngine
         control.SetPosition(newBounds.X, newBounds.Y);
     }
 
-    protected CalculateAlignmentStyleBounds(control: Control,parentBounds: Rect, padding: Padding)
+    protected CalculateAlignmentStyleBounds(control: Control, parentBounds: Rect, padding: Padding)
     {
         let alignment = control.Alignment;							
         let margins = control.Margins;
