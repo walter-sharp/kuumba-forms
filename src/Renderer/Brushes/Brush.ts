@@ -1,3 +1,9 @@
+import "./GradientBrush"
+import "./ImageBrush"
+import "./LinearGradient"
+import "./RadialGradient"
+import "./SolidColourBrush"
+
 export enum BrushTypes
 {
     SolidColour, 

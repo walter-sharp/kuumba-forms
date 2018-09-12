@@ -1,3 +1,5 @@
+import "./Style"
+
 import { Style } from "./Style";
 
 export class Theme

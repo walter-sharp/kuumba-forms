@@ -1,3 +1,9 @@
+//to prevent typescript elide
+import "./Forms/Controls/Control";
+import "./Forms/Theming/Theme"
+import "./Renderer/IRenderer"
+import "./Renderer/Canvas2dRenderer"
+
 import { IRenderer } from "./Renderer/IRenderer";
 import { Control } from "./Forms/Controls/Control";
 

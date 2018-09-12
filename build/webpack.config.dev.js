@@ -6,12 +6,14 @@ module.exports = {
 	devtool: false,
 	entry:
 	{
-		main: [ "./src/KuumbaForms" ]
+		main: "./src/KuumbaForms"
 	},
 	output:
 	{
 		path: __dirname + "/../dist",
-		filename: "kuumba-forms.js"
+		filename: "kuumba-forms.js",
+		library: "KuumbaForms",
+		libraryTarget: "umd"
 	},
 	module:
 	{

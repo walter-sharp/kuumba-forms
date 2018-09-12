@@ -1,3 +1,8 @@
+import "./Brushes/Brush";
+import "./Pen";
+import "./Font";
+import "./Colour";
+
 import { Brush } from "./Brushes/Brush";
 import { Pen } from "./Pen";
 import { Position } from "./Position";

@@ -1,3 +1,12 @@
+import "./StyleClass";
+import "./StyleComponents/StyleComponent";
+import "./StyleComponents/CircleGraphic";
+import "./StyleComponents/ImageGraphic";
+import "./StyleComponents/LineGraphic";
+import "./StyleComponents/RectangleGraphic";
+import "./StyleComponents/RoundedRectangleGraphic";
+import "./StyleComponents/TextGraphic";
+
 import { StyleClass } from "./StyleClass";
 import { StyleComponent } from "./StyleComponents/StyleComponent";
 import { Property } from "../Controls/Property";
