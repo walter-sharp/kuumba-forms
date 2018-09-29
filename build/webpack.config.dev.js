@@ -1,4 +1,5 @@
 const path = require("path");
+const DtsBundleWebpack = require("dts-bundle-webpack");
 
 module.exports = {
 	watch: false,
@@ -26,5 +27,6 @@ module.exports = {
 	{
 		extensions: [ ".ts" ],
 		modules: [ "./src" ]
-	}
+	},
+	plugins: [ new DtsBundleWebpack({ main: "./src/**/*.d.ts", removeSource: true, name: "KuumbaForms",  out: "./build/kuumba-forms.d.ts" }) ]
 }
