@@ -28,5 +28,5 @@ module.exports = {
 		extensions: [ ".ts" ],
 		modules: [ "./src" ]
 	},
-	plugins: [ new DtsBundleWebpack({ main: "./src/**/*.d.ts", removeSource: true, name: "KuumbaForms",  out: "./build/kuumba-forms.d.ts" }) ]
+	plugins: [ new DtsBundleWebpack({ main: "./src/**/*.d.ts", removeSource: true, name: "KuumbaForms",  out: "../dist/kuumba-forms.d.ts" }) ]
 }
